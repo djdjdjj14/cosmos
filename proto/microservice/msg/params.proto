@@ -1,0 +1,12 @@
+syntax = "proto3";
+package microservice.msg;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "microservice/x/msg/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}

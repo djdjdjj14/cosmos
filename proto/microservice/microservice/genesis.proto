@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package microservice.microservice;
+
+import "gogoproto/gogo.proto";
+import "microservice/microservice/params.proto";
+import "microservice/microservice/log.proto";
+
+option go_package = "microservice/x/microservice/types";
+
+// GenesisState defines the microservice module's genesis state.
+message GenesisState {
+           Params params   = 1 [(gogoproto.nullable) = false];
+  repeated Log    logList  = 2 [(gogoproto.nullable) = false];
+           uint64 logCount = 3;
+}
+

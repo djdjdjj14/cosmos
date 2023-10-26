@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package microservice.msg;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "microservice/msg/params.proto";
+import "microservice/msg/post.proto";
+
+option go_package = "microservice/x/msg/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  
+  // Parameters queries the parameters of the module.
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/microservice/msg/params";
+  
+  }
+  
+  // Queries a list of Post items.
+  rpc Post    (QueryGetPostRequest) returns (QueryGetPostResponse) {
+    option (google.api.http).get = "/microservice/msg/post/{index}";
+  
+  }
+  rpc PostAll (QueryAllPostRequest) returns (QueryAllPostResponse) {
+    option (google.api.http).get = "/microservice/msg/post";
+  
+  }
+}
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetPostRequest {
+  string index = 1;
+}
+
+message QueryGetPostResponse {
+  Post post = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPostRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPostResponse {
+  repeated Post                                   post       = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+

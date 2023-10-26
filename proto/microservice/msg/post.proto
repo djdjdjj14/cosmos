@@ -1,0 +1,12 @@
+syntax = "proto3";
+package microservice.msg;
+
+option go_package = "microservice/x/msg/types";
+
+message Post {
+  string index = 1; 
+  string title = 2; 
+  string body = 3; 
+  string creator = 4;
+}
+

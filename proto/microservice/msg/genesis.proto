@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package microservice.msg;
+
+import "gogoproto/gogo.proto";
+import "microservice/msg/params.proto";
+import "microservice/msg/post.proto";
+
+option go_package = "microservice/x/msg/types";
+
+// GenesisState defines the msg module's genesis state.
+message GenesisState {
+           Params params   = 1 [(gogoproto.nullable) = false];
+  repeated Post   postList = 2 [(gogoproto.nullable) = false];
+}
+

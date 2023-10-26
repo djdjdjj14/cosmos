@@ -1,0 +1,12 @@
+syntax = "proto3";
+package microservice.microservice;
+
+option go_package = "microservice/x/microservice/types";
+
+message Log {
+  uint64 id = 1;
+  string title = 2; 
+  string body = 3; 
+  string time = 4; 
+  string creator = 5;
+}

@@ -1,0 +1,40 @@
+version: 1
+accounts:
+- name: alice
+  coins:
+  - 20000token
+  - 200000000stake
+- name: jeff
+  coins:
+  - 20000token
+  - 200000000stake
+- name: zhang3
+  coins:
+  - 20000token
+  - 200000000stake
+- name: li4
+  coins:
+  - 20000token
+  - 200000000stake
+- name: bob
+  coins:
+  - 10000token
+  - 100000000stake
+client:
+  openapi:
+    path: docs/static/openapi.yml
+faucet:
+  name: bob
+  coins:
+  - 5token
+  - 100000stake
+validators:
+- name: alice
+  bonded: 100000000stake
+- name: jeff
+  bonded: 100000000stake
+- name: zhang3
+  bonded: 100000000stake
+- name: li4
+  bonded: 100000000stake
+
